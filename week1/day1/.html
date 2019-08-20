@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+var oLis = document.getElementsByTagName('li');
+    for (var i = 0; i < oLis.length; i++) {
+        oLis[i].style.background = i % 2 ? 'blue' : 'red';
+        olis[i].myindex = i;
+        oLis[i].onmouseenter = function () {
+            col = this.style.background;
+            this.style.background = 'black'
+        }
+        oLis[i].onmouseleave = function () {
+            this.style.background = col;
+        }
+        oLis[i].onclick = function () {
+            alert(`我是第${this.myindex + 1}个li`)
+        }
+    }
+</script>
