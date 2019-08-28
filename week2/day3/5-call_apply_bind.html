@@ -46,6 +46,7 @@
          // context.eee()    eee 这个函数中的this  就是context;
          context.eee = this; // context.eee 跟我们的 f2 是同一个函数；
          context.eee(...arg);
+         delete context.eee // 为了不再原有的对象中添加属性
     }
 
     function f2(a,b){
@@ -58,5 +59,5 @@
         e:345
     }
     f2.myCall(obj,3,3);  // 让f2 执行，并且把 f2 中的this 指向 改成obj; 把3,3 当做实参传给f2
-
+    
 </script>
