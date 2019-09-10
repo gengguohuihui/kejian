@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            ;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            height: 2000px;
+            background: #eee;
+        }
+
+        #box {
+            /*width: 300px;
+            height: 300px;*/
+            position: relative;
+            top: 1600px;
+            border: 1px dashed salmon;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+        <img src="./default.gif"
+            realsrc="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1567829693&di=db7620daf4721f73bf8934671080bd91&src=http://b-ssl.duitang.com/uploads/item/201901/11/20190111170211_yzief.jpg"
+            alt="">
+    </div>
+</body>
+
+</html>
+<script src="./utils.js"></script>
+<script>
+    var { offset, winH } = utils;
+    var img = document.getElementById('img');
+    function loadImg(ele) {
+        if (ele.loaded) return;
+        let scrT = document.documentElement.scrollTop;
+        let winh = utils.winH();
+        let tarT = offset(ele).t;
+        if (scrT + winh > tarT) {
+            console.log(111)
+            let realsrc = ele.getAttribute('realsrc');
+            let temp = new Image();
+            temp.src = realsrc;
+            temp.onload = function () {
+
+                ele.src = realsrc;
+                temp = null;
+                fadeIn(ele);
+            }
+            ele.loaded = true;
+        }
+    }
+
+    window.onscroll = function () {
+        //loadImg(img);
+        loadAll()
+    }
+    function loadAll() {
+        // 多张图片的懒加载  就是对每一个图片实行一下 loadImg
+        var imgs = document.getElementsByTagName('img');
+        for (var i = 0; i < imgs.length; i++) {
+            loadImg(imgs[i])
+        }
+    }
+    function fadeIn(ele) {
+        ele.style.opacity = 0;
+        let a = 0;
+        ele.timer = setInterval(() => {
+            a += 0.1;
+            if (a >= 1) {
+                clearInterval(ele.timer);
+                a = 1;
+            }
+            ele.style.opacity = a;
+        }, 20)
+    }
+</script>
